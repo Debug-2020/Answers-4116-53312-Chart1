@@ -1068,6 +1068,25 @@ public class TimeSeries extends Series implements Cloneable, Serializable {
                 }
             }
         }
+        System.out.println(""+copy.data);
+        double min = 100000.0;
+        double max = -100000.0;
+        for(int i = 0; i <copy.data.size();++i)
+        {
+            TimeSeriesDataItem t1=  (TimeSeriesDataItem)copy.data.get(i);          
+        	System.out.println(Double.parseDouble(""+t1.getValue()));
+            if(Double.parseDouble(""+t1.getValue()) < min)
+        	{
+        		min = Double.parseDouble(""+t1.getValue());
+        	}
+            if(Double.parseDouble(""+t1.getValue()) > max)
+        	{
+        		max = Double.parseDouble(""+t1.getValue());
+        	}
+            
+        }
+        copy.maxY = max;
+        copy.minY = min;
         return copy;
     }
 
